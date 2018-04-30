@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
+import './header-bar.css'
 
 export class HeaderBar extends React.Component {
     logOut() {
@@ -18,10 +19,14 @@ export class HeaderBar extends React.Component {
             );
         }
         return (
-            <div className="header-bar">
-                <h1>Foo App</h1>
-                {logOutButton}
-            </div>
+                <header className="header-bar" role="banner">
+                    <h1>
+                        <div>
+                            <img className="logo" src="https://image.flaticon.com/icons/svg/196/196768.svg" alt="BlogTopic" /> 
+                            <div className="logo-text">BlogTopic</div>
+                        </div>
+                    </h1>
+                </header>
         );
     }
 }

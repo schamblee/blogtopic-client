@@ -2,11 +2,14 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Route, withRouter} from 'react-router-dom';
 
+//import CallToAction from './call-to-action'
+import Nav from './nav';
 import HeaderBar from './header-bar';
 import LandingPage from './landing-page';
 import Dashboard from './dashboard';
 import RegistrationPage from './registration-page';
 import {refreshAuthToken} from '../actions/auth';
+import BlogPostList from './blog-post-list';
 
 export class App extends React.Component {
     componentDidUpdate(prevProps) {
@@ -41,10 +44,12 @@ export class App extends React.Component {
     render() {
         return (
             <div className="app">
+                <Nav />
                 <HeaderBar />
                 <Route exact path="/" component={LandingPage} />
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/register" component={RegistrationPage} />
+                <Route exact path="/blog/posts" component={BlogPostList} />
             </div>
         );
     }
