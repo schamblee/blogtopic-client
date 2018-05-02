@@ -9,7 +9,7 @@ import LandingPage from './landing-page';
 import Dashboard from './dashboard';
 import RegistrationPage from './registration-page';
 import {refreshAuthToken} from '../actions/auth';
-import BlogPostList from './blog-post-list';
+import TopicsList from './topics-list';
 
 export class App extends React.Component {
     componentDidUpdate(prevProps) {
@@ -49,7 +49,7 @@ export class App extends React.Component {
                 <Route exact path="/" component={LandingPage} />
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/register" component={RegistrationPage} />
-                <Route exact path="/blog/posts" component={BlogPostList} />
+                <Route exact path="/topics" component={TopicsList} />
             </div>
         );
     }

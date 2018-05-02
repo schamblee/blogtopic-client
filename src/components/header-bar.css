@@ -1,9 +1,10 @@
 .logo {
-    max-width: 70px;
+    max-width: 60px;
     display: inline-block;
   }
   
   .logo-text {
     display: inline-block;
     vertical-align: 15px;
+    margin-left: 10px;
   }
