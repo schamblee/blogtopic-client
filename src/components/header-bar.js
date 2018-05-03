@@ -5,19 +5,8 @@ import {clearAuthToken} from '../local-storage';
 import './header-bar.css'
 
 export class HeaderBar extends React.Component {
-    logOut() {
-        this.props.dispatch(clearAuth());
-        clearAuthToken();
-    }
-
     render() {
         // Only render the log out button if we are logged in
-        let logOutButton;
-        if (this.props.loggedIn) {
-            logOutButton = (
-                <button onClick={() => this.logOut()}>Log out</button>
-            );
-        }
         return (
                 <header className="header-bar" role="banner">
                     <h1>
@@ -25,7 +14,7 @@ export class HeaderBar extends React.Component {
                             <img className="logo" src="https://image.flaticon.com/icons/svg/196/196768.svg" alt="BlogTopic" /> 
                             <div className="logo-text">BlogTopic</div>
                         </div>
-                    </h1>
+                    </h1> 
                 </header>
         );
     }

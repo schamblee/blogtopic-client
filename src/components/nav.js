@@ -5,10 +5,20 @@ import {clearAuthToken} from '../local-storage';
 import './nav.css';
 
 export class Nav extends React.Component {  
+    logOut() {
+        this.props.dispatch(clearAuth());
+        clearAuthToken();
+    }
     render() {
+        let logOutButton;
+        if (this.props.isLoggedIn) {
+            logOutButton = (
+                <button onClick={() => this.logOut()}>Log out</button>
+            );
+        }
         const isLoggedIn = this.props.isLoggedIn;
         return (
-            <nav className="nav" role="navigation">
+            <nav className="nav">
                 <div id="menuToggle">
                     <input type="checkbox" />
                     <span></span>
@@ -16,14 +26,14 @@ export class Nav extends React.Component {
                     <span></span>
                     {isLoggedIn ? (
                     <ul id="menu">
-                        <a href="/"><li>Log Out</li></a>
+                        {logOutButton}
                         <a href="/topics"><li>Search Topics</li></a> 
                     </ul>
                     ) : (
                     <ul id="menu">
-                        <a href="/"><li>Log In</li></a>
+                        <a href="/#logIn"><li>Log In</li></a>
                         <a href="/register"><li>Create Account</li></a>
-                        <a href="/topics"><li>Search Topics</li></a> 
+                        <a href="/"><li>Home</li></a>
                     </ul>
                     )}
                 </div>
@@ -33,7 +43,8 @@ export class Nav extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    loggedIn: state.auth.currentUser !== null
+    loggedIn: state.auth.currentUser !== null,
+    currentUser: state.auth.currentUser
 });
 
 export default connect(mapStateToProps)(Nav);

@@ -38,6 +38,6 @@ export default function reducer(state = initialState, action) {
             loading: false,
             error: action.error
         });
-    }
+    } 
     return state;
 }
