@@ -1,91 +1,45 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import {fetchTopics} from '../actions/topics';
+import requiresLogin from './requires-login';
+import Topic from './topic'
+import Filter from './filter'
+import moment from 'moment'
 
-let fakeServerData = {
-    topics: [{
-        topicName: 'Web Development',
-        blogs: [
-        {
-          title: 'Getting Started with React',
-          author: 'Joshua Chamblee',
-          content: 'Step 1: Use create-react-app in your console...',
-          popularity: 100
-        }],
-    }, 
-    {
-        topicName: 'Food',
-        blogs: [
-        {
-          title: 'Best Burger Recipe',
-          author: 'Stephanie Chamblee',
-          content: 'Step 1: Use create-react-app in your console...',
-          popularity: 100
-        }]
-    }]
-    }
 
-class Filter extends Component {
-    render() {
-        return (
-            <div>
-              <h2>Search Topic:</h2>
-              <input placeholder="Search a Topic" type="text" 
-                onKeyUp={event => 
-                this.props.onTextChange(event.target.value)} />
-            </div>
-          );
-        }
-      }
-
-class Topic extends Component {
-    render() {
-        let topic = this.props.topic
-        return (
-            <div>
-              <h2>{topic.topicName}</h2>
-              <ul>
-                {topic.blogs.map(blog =>
-                  <li>{blog.title}</li>
-                )}
-              </ul>
-            </div>
-          );
-    }
-}
-
-export default class TopicsList extends Component {
-    constructor() {
-        super();
-        this.state = {
-          serverData: {},
-          filterString: ''
-        }
-      }
+export class TopicsList extends Component {
       componentDidMount() {
-        setTimeout(() => {
-          this.setState({serverData: fakeServerData});
-        }, 1000);
+          console.log(this.props)
+          this.props.dispatch(fetchTopics());
       }
+
+
       render() {
-        let topicsToRender = this.state.serverData.topics ?
-        this.state.serverData.topics
-        .filter(topic =>
-          topic.topicName.toLowerCase().includes(
-            this.state.filterString.toLowerCase())
-        ) : []
+        let topics
+        if (this.props.topics && this.props.topics.length) {
+            topics = this.props.topics.map((topic, index) => (
+            <Topic topic={topic} index={index }/>     
+          ))
+        }
+
+
     return (
     <div className="topics-list">
-
-    { this.state.serverData.topics ?
        <section>
-       <Filter onTextChange={text => {
-            this.setState({filterString: text})
-            }}/>
-          {topicsToRender.map(topic =>
-            <Topic topic={topic} /> 
-          )}
-     </section> : <h1>Loading...</h1>
-    }
+         {this.props.topics && this.props.topics.length ? topics : ''}
+       </section>
     </div>
     );
+  }
 }
-}
+
+const mapStateToProps = state => {
+  const {currentUser} = state.auth;
+  return {
+      username: state.auth.currentUser.username,
+      name: `${currentUser.firstName}`,
+      topics: state.topic.topics
+  };
+};
+
+export default requiresLogin()(connect(mapStateToProps)(TopicsList));

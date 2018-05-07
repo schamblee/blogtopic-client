@@ -11,12 +11,12 @@ export class Nav extends React.Component {
     }
     render() {
         let logOutButton;
-        if (this.props.isLoggedIn) {
+        if (this.props.loggedIn) {
             logOutButton = (
                 <button onClick={() => this.logOut()}>Log out</button>
             );
         }
-        const isLoggedIn = this.props.isLoggedIn;
+        const loggedIn = this.props.loggedIn;
         return (
             <nav className="nav">
                 <div id="menuToggle">
@@ -24,10 +24,11 @@ export class Nav extends React.Component {
                     <span></span>
                     <span></span>
                     <span></span>
-                    {isLoggedIn ? (
+                    {loggedIn ? (
                     <ul id="menu">
                         {logOutButton}
-                        <a href="/topics"><li>Search Topics</li></a> 
+                        <a href="/topics"><li>Topics</li></a>
+                        <a href="/"><li>Home</li></a> 
                     </ul>
                     ) : (
                     <ul id="menu">

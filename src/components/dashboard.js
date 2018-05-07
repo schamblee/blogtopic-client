@@ -1,23 +1,31 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
-import {fetchProtectedData} from '../actions/protected-data';
+import {fetchBlogs} from '../actions/blogs';
+import moment from 'moment';
 
 export class Dashboard extends React.Component {
     componentDidMount() {
-        this.props.dispatch(fetchProtectedData());
+        console.log(this.props)
+        this.props.dispatch(fetchBlogs(this.props.username));
     }
 
     render() {
+        let blogs
+        if (this.props.blogs && this.props.blogs.length) {
+            blogs = this.props.blogs.map((blog, index) => (
+            <div key={index}>
+                <h2>{blog.title}</h2>
+                <h2>{moment(blog.createDate).format('MMM DD YYYY')}</h2> 
+                <p>{blog.content}</p>
+            </div>
+        ))
+        }
         return (
             <div className="dashboard">
-                <div className="dashboard-username">
-                    Username: {this.props.username}
-                </div>
-                <div className="dashboard-name">Name: {this.props.name}</div>
-                <div className="dashboard-protected-data">
-                    Protected data: {this.props.protectedData}
-                </div>
+                <div className="dashboard-name">Welcome {this.props.name}</div>
+                <div className="user-blogs">Your Blogs</div>
+                { this.props.blogs && this.props.blogs.length ? blogs : ''}
             </div>
         );
     }
@@ -27,8 +35,8 @@ const mapStateToProps = state => {
     const {currentUser} = state.auth;
     return {
         username: state.auth.currentUser.username,
-        name: `${currentUser.firstName} ${currentUser.lastName}`,
-        protectedData: state.protectedData.data
+        name: `${currentUser.firstName}`,
+        blogs: state.blog.blogs
     };
 };
 
