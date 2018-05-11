@@ -1,17 +1,17 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
-import {fetchBlogs} from '../actions/blogs';
+import {fetchTopicBlogs} from '../actions/blogs';
 import moment from 'moment';
 
-export class Dashboard extends React.Component {
+export class BlogsList extends React.Component {
     componentDidMount() {
         console.log(this.props)
-        this.props.dispatch(fetchBlogs(this.props.username));
+        this.props.dispatch(fetchTopicBlogs(this.props.currenTopic));
     }
 
     render() {
-        const blogs = this.props.blogs.map((blog, index) => (
+         const blogs = this.props.blogs.map((blog, index) => (
             <div key={index}>
                 <h2>{blog.title}</h2>
                 <h2>{moment(blog.createDate).format('MMM DD YYYY')}</h2> 
@@ -19,9 +19,7 @@ export class Dashboard extends React.Component {
             </div>
         ))
         return (
-            <div className="dashboard">
-                <div className="dashboard-name">Welcome {this.props.name}</div>
-                <div className="user-blogs">Your Blogs</div>
+            <div className="topicBlogs">
                 { this.props.blogs && this.props.blogs.length ? blogs : ''}
             </div>
         );
@@ -33,8 +31,9 @@ const mapStateToProps = state => {
     return {
         username: state.auth.currentUser.username,
         name: `${currentUser.firstName}`,
-        blogs: state.blog.blogs
+        blogs: state.blog.blogs,
+        currentTopic: state.topic.currentTopic
     };
 };
 
-export default requiresLogin()(connect(mapStateToProps)(Dashboard));
+export default requiresLogin()(connect(mapStateToProps)(BlogsList));

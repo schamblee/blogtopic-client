@@ -21,13 +21,16 @@ import{
         topics: [],
         currentTopic: null,
         loading: false,
-        error: null 
+        error: null,
+        redirectToTopic: false 
     }
     
     export const topicReducer = (state = initialState, action) => {
         if(action.type === CREATE_TOPIC_SUCCESS) {
+            console.log(action.newTopic)
             return Object.assign({}, state, {
-                topics: [...state.topics, action.topic]
+                topics: [...state.topics, action.newTopic],
+                redirectToTopic: true
             })
         }
         else if(action.type === CREATE_TOPIC) {

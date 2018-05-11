@@ -1,7 +1,7 @@
 import { API_BASE_URL } from '../config';
 import { loadAuthToken } from '../local-storage';
 import { SubmissionError } from 'redux-form'
-
+import { push } from 'react-router-redux'
 
 export const CREATE_TOPIC = 'CREATE_TOPIC'
 export const createTopic = (topic) => ({
@@ -12,7 +12,8 @@ export const createTopic = (topic) => ({
 export const CREATE_TOPIC_SUCCESS = 'CREATE_TOPIC_SUCCESS'
 export const createTopicSuccess = (topic) => ({
     type:'CREATE_TOPIC_SUCCESS',
-    newTopic: topic
+    newTopic: topic,
+    redirectToTopic: true
 })
 
 export const CREATE_TOPIC_ERROR = 'CREATE_TOPIC_ERROR'

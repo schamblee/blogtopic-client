@@ -10,6 +10,7 @@ import Dashboard from './dashboard';
 import RegistrationPage from './registration-page';
 import {refreshAuthToken} from '../actions/auth';
 import TopicsList from './topics-list';
+import BlogsList from './blogs-list';
 
 export class App extends React.Component {
     componentDidUpdate(prevProps) {
@@ -50,6 +51,7 @@ export class App extends React.Component {
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/register" component={RegistrationPage} />
                 <Route exact path="/topics" component={TopicsList} />
+                <Route exact path="/topic/blogs" component={BlogsList} />
             </div>
         );
     }

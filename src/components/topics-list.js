@@ -6,24 +6,31 @@ import Topic from './topic'
 import TopicForm from './topic-form'
 import Filter from './filter'
 import moment from 'moment'
-
+import {Link, Redirect} from 'react-router-dom';
 
 export class TopicsList extends Component {
       componentDidMount() {
           this.props.dispatch(fetchTopics());
       }
       render() {
-        let topics
-        if (this.props.topics && this.props.topics.length) {
-            topics = this.props.topics.map((topic, index) => (
-            <Topic topic={topic} index={index}/>     
-          ))
-        }
+      if (this.props.redirectToTopic) {
+        let newTopicId = this.props.topics[this.props.topics.length - 1].id
+          return (
+              <div>
+                <Redirect to={`/topic/blogs/${newTopicId}`} />
+              </div>
+          )
+      }
+      const topics = this.props.topics.map((topic, index) => (
+        <Topic topic={topic} key={index} />     
+      ))
+
     return (
     <div className="topics-list">
       <TopicForm />
        <section>
-         {this.props.topics && this.props.topics.length ? topics : ''}
+      
+         {topics}
        </section>
     </div>
     )
@@ -35,7 +42,8 @@ const mapStateToProps = state => {
   return {
       username: state.auth.currentUser.username,
       name: `${currentUser.firstName}`,
-      topics: state.topic.topics
+      topics: state.topic.topics,
+      redirectToTopic: state.topic.redirectToTopic
   };
 };
 

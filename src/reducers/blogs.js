@@ -8,6 +8,9 @@ import{
     FETCH_BLOGS_DATA,
     FETCH_BLOGS_SUCCESS,
     FETCH_BLOGS_ERROR,
+    FETCH_TOPIC_BLOGS_DATA,
+    FETCH_TOPIC_BLOGS_SUCCESS,
+    FETCH_TOPIC_BLOGS_ERROR,
     UPDATE_BLOG_REQUEST,
     UPDATE_BLOG_SUCCESS,
     UPDATE_BLOG_ERROR
@@ -18,7 +21,8 @@ import{
         blogs: [],
         currentBlog: null,
         loading: false,
-        error: null 
+        error: null,
+        currentTopic: [] 
     }
     
     export const blogReducer = (state = initialState, action) => {
@@ -54,7 +58,24 @@ import{
                 loading: false,
                 error: action.error
             })
-        }    
+        }  
+        else if(action.type === FETCH_TOPIC_BLOGS_DATA) {
+            return Object.assign({}, state, {
+                loading: true
+            })
+        }
+        else if(action.type === FETCH_TOPIC_BLOGS_SUCCESS){
+            return Object.assign({}, state,{
+                currentTopic: action.blog,
+                loading: false
+           }) 
+        }   
+        else if(action.type === FETCH_TOPIC_BLOGS_ERROR){
+            return Object.assign({}, state,{
+                loading: false,
+                error: action.error
+            })
+        }  
         else if(action.type === FETCH_BLOGS_DATA) {
             return Object.assign({}, state, {
                 loading: true

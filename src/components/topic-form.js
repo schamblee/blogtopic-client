@@ -1,8 +1,10 @@
 import React from 'react'
-import { Field, focus, reduxForm } from 'redux-form'
+import { Field, focus, resetForm, reduxForm } from 'redux-form'
 import { newTopic, fetchTopics } from '../actions/topics';
 import './topic-form.css'
 import Input from './input';
+import {Link, Redirect} from 'react-router-dom';
+
 
 export class TopicForm extends React.Component {
     onSubmit(values) {
@@ -10,7 +12,7 @@ export class TopicForm extends React.Component {
         const topic = topicName;
         return this.props
         .dispatch(newTopic(topic))
-        .then(this.forceUpdate())
+        
     }
 
     render() {
@@ -30,8 +32,8 @@ export class TopicForm extends React.Component {
                     type="submit"
                     disabled={this.props.pristine || this.props.submitting}>
                     Submit
-                </button>
-            </form>
+                </button>    
+            </form>   
         );
     }
 }

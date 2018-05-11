@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import moment from 'moment';
+import {Link} from 'react-router-dom';
+import './topic.css'
 
 export default class Topic extends Component {
     render() {
         let topic = this.props.topic
-        let index = this.props.index
+        let key = this.props.key
         return (
-          <div key={index}>
-            <h2>{topic.topicName}</h2>
-            <p>Last Blog: {moment(topic.created).format('MMM DD YYYY')}</p> 
+          <div key={key}>
+            <Link className="topic-link" to= {`/topic/blogs/${topic.id}`}>{topic.topicName}</Link>
+            <p>Created: {moment(topic.created).format('MMM DD YYYY')}</p> 
           </div>
           );
     }

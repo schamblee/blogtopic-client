@@ -38,7 +38,6 @@ export const FETCH_BLOG_ERROR= 'FETCH_BLOG_ERROR'
 export const fetchBlogError = (error) => dispatch => ({
     type:'FETCH_BLOG_ERROR',
     error
-
 })
 
 export const FETCH_BLOGS_DATA = 'FETCH_BLOGS_DATA'
@@ -57,6 +56,25 @@ export const fetchBlogsSuccess = (blogs) => ({
 export const FETCH_BLOGS_ERROR= 'FETCH_BLOGS_ERROR'
 export const fetchBlogsError = (error) => dispatch => ({
     type:'FETCH_BLOGS_ERROR',
+    error
+})
+
+export const FETCH_TOPIC_BLOGS_DATA = 'FETCH_TOPIC_BLOGS_DATA'
+export const fetchTopicBlogsData = () => ({
+    type:'FETCH_TOPIC_BLOGS_DATA',
+})
+
+
+export const FETCH_TOPIC_BLOGS_SUCCESS = 'FETCH_TOPIC_BLOGS_SUCCESS'
+export const fetchTopicBlogsSuccess = (blogs) => ({
+    type:'FETCH_TOPIC_BLOGS_SUCCESS',
+    blogs: blogs
+})
+
+
+export const FETCH_TOPIC_BLOGS_ERROR= 'FETCH_TOPIC_BLOGS_ERROR'
+export const fetchTopicBlogsError = (error) => dispatch => ({
+    type:'FETCH_TOPIC_BLOGS_ERROR',
     error
 })
 
@@ -145,6 +163,20 @@ export const fetchBlogs = username => (dispatch, getState) => {
         .then(res => res.json())
         .then(blogs => dispatch(fetchBlogsSuccess(blogs)))
         .catch(err=> dispatch(fetchBlogsError(err)))
+}
+
+export const fetchTopicBlogs = topicId => (dispatch, getState) => {
+    dispatch(fetchTopicBlogsData());
+    const authToken = localStorage.getItem('authToken');
+    fetch(`${API_BASE_URL}/topic/${topicId}`, {
+        headers: {
+            'Authorization': `Bearer ${authToken}`,
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(res => res.json())
+        .then(blogs => dispatch(fetchTopicBlogsSuccess(blogs)))
+        .catch(err=> dispatch(fetchTopicBlogsError(err)))
 }
 
 
