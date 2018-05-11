@@ -8,7 +8,7 @@ export default class Topic extends Component {
         return (
           <div key={index}>
             <h2>{topic.topicName}</h2>
-            <h2>{moment(topic.created).format('MMM DD YYYY')}</h2> 
+            <p>Last Blog: {moment(topic.created).format('MMM DD YYYY')}</p> 
           </div>
           );
     }

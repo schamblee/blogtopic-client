@@ -1,5 +1,6 @@
 import { API_BASE_URL } from '../config';
 import { loadAuthToken } from '../local-storage';
+import { SubmissionError } from 'redux-form'
 
 
 export const CREATE_TOPIC = 'CREATE_TOPIC'
@@ -79,9 +80,6 @@ export const filterTopicsError = (error) => dispatch => ({
     error
 })
 
-
-
-
 export const UPDATE_TOPIC_REQUEST = 'UPDATE_TOPIC'
 export const updateTopicRequest = (topic) => ({
     type:'UPDATE_TOPIC',
@@ -119,27 +117,37 @@ export const deleteTopicError = (error) => ({
 })
 
 
-export const newTopic = user => dispatch => {
+export const newTopic = (topicName) => dispatch => {
     const authToken = loadAuthToken();
-    return fetch(`${API_BASE_URL}/topics/${user.id}`, {
+    return fetch(`${API_BASE_URL}/topics`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Authorization' : `Bearer ${authToken}`
         },
-        body: JSON.stringify(user)
-    
+        body: JSON.stringify({topicName})
     })
-        .then(res => res.json())
-            .then(response=> {
-            const id = response.id;
-            window.location = `/TOPICs/${id}`;
-            return dispatch(createTopic(response));
-        })
-        .catch(err => {
+    .then(res => {
+        if (!res.ok) {
+          if (
+            res.headers.has('content-type') &&
+            res.headers.get('content-type').startsWith('application/json')
+          ) {
+            return res.json().then(err => Promise.reject(err));
+          }
+          return Promise.reject({
+            code: res.status,
+            message: res.statusText
+          });
+        }
+        return res.json();
+      })
+      .then((json) => {
+        return dispatch(createTopicSuccess(json))})
+      .catch(err => {
             dispatch(createTopicError(err))
-        });
-};
+      })
+    }
 
 export const fetchTopic =(id)=>(dispatch, getState)=>{
     dispatch(fetchTopicData());

@@ -1,35 +1,32 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {fetchTopics} from '../actions/topics';
+import {fetchTopics, newTopic} from '../actions/topics';
 import requiresLogin from './requires-login';
 import Topic from './topic'
+import TopicForm from './topic-form'
 import Filter from './filter'
 import moment from 'moment'
 
 
 export class TopicsList extends Component {
       componentDidMount() {
-          console.log(this.props)
           this.props.dispatch(fetchTopics());
       }
-
-
       render() {
         let topics
         if (this.props.topics && this.props.topics.length) {
             topics = this.props.topics.map((topic, index) => (
-            <Topic topic={topic} index={index }/>     
+            <Topic topic={topic} index={index}/>     
           ))
         }
-
-
     return (
     <div className="topics-list">
+      <TopicForm />
        <section>
          {this.props.topics && this.props.topics.length ? topics : ''}
        </section>
     </div>
-    );
+    )
   }
 }
 
