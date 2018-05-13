@@ -22,13 +22,13 @@ export class TopicsList extends Component {
               <div>
                 <Redirect to={`/topic/blogs/${newTopicId}`} />
               </div>
-          )
-      }
+          );
+      };
       if(this.props.topics && this.props.topics.length) {
         topics = this.props.topics.map((topic, index) => (
         <Topic topic={topic} key={index} />     
-        ))
-    }
+        ));
+    };
 
     return (
     <div className="topics-list">

@@ -22,7 +22,8 @@ import{
         currentBlog: null,
         loading: false,
         error: null,
-        currentTopic: null
+        currentTopic: null,
+        redirectToBlog: false 
     }
     
     export const blogReducer = (state = initialState, action) => {
@@ -95,12 +96,14 @@ import{
         }   
         else if(action.type === UPDATE_BLOG_REQUEST) {
             return Object.assign({}, state, {
-                loading: true
+                loading: true,
+                redirectToBlog: true
             })
         }
         else if(action.type === UPDATE_BLOG_SUCCESS){
             return Object.assign({}, state,{
                 blogs: action.blogs,
+                redirectToTopic: true,
                 loading: false
            }) 
         }   

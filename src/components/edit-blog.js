@@ -22,7 +22,11 @@ export class EditBlog extends React.Component {
         console.log(this.props)
         let blog;
         let username;
+        let content;
+        let initialValues;
+        let redirectToBlog;
         if(this.props.currentBlog) {
+            initialValues = this.props.currentBlog;
             blog =  <div>
             <h1>{ this.props.currentBlog.title }</h1>
              </div>
@@ -35,8 +39,8 @@ export class EditBlog extends React.Component {
                 <HeaderBar />
                 {blog}
              <h1>Edit Blog</h1>
-             <EditBlogForm blogId={'hello'} 
-              username={username} />
+             <EditBlogForm initialValues={initialValues}
+              username={username} redirectToBlog={redirectToBlog} />
             </div>
         );
     }
@@ -47,7 +51,8 @@ const mapStateToProps = state => {
         username: state.auth.currentUser.username,
         name: state.auth.currentUser.firstName,
         currentBlog: state.blog.currentBlog,
-        currentTopic: state.topic.currentTopic
+        currentTopic: state.topic.currentTopic,
+        redirectToBlog: state.blog.redirectToBlog
     };
 };
 

@@ -81,13 +81,15 @@ export const fetchTopicBlogsError = (error) => dispatch => ({
 export const UPDATE_BLOG_REQUEST = 'UPDATE_BLOG'
 export const updateBlogRequest = (blog) => ({
     type:'UPDATE_BLOG',
-    newBlog: blog
+    newBlog: blog,
+    redirectToBlog: true
 })
 
 export const UPDATE_BLOG_SUCCESS = 'UPDATE_BLOG_SUCCESS'
 export const updateBlogSuccess = (blog) => ({
     type:'UPDATE_BLOG_SUCCESS',
-    newBlog: blog
+    newBlog: blog,
+    redirectToBlog: true
 })
 
 export const UPDATE_BLOG_ERROR = 'UPDATE_BLOG_ERROR'
