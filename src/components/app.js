@@ -11,6 +11,9 @@ import RegistrationPage from './registration-page';
 import {refreshAuthToken} from '../actions/auth';
 import TopicsList from './topics-list';
 import BlogsList from './blogs-list';
+import Blog from './blog';
+import CreateBlog from './create-blog';
+import EditBlog from './edit-blog';
 
 export class App extends React.Component {
     componentDidUpdate(prevProps) {
@@ -46,12 +49,14 @@ export class App extends React.Component {
         return (
             <div className="app">
                 <Nav />
-                <HeaderBar />
                 <Route exact path="/" component={LandingPage} />
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/register" component={RegistrationPage} />
                 <Route exact path="/topics" component={TopicsList} />
-                <Route exact path="/topic/blogs" component={BlogsList} />
+                <Route exact path="/topic/blogs/:id" component={BlogsList} />
+                <Route exact path="/blog/:id" component={Blog} />
+                <Route exact path="/topic/:topidId/blog/create" component={CreateBlog} />
+                <Route exact path="/blog/edit/:blogId" component={EditBlog} />
             </div>
         );
     }

@@ -7,12 +7,15 @@ import TopicForm from './topic-form'
 import Filter from './filter'
 import moment from 'moment'
 import {Link, Redirect} from 'react-router-dom';
+import './topic-list.css'
+import { HeaderBar } from './header-bar';
 
 export class TopicsList extends Component {
       componentDidMount() {
           this.props.dispatch(fetchTopics());
       }
       render() {
+      let topics
       if (this.props.redirectToTopic) {
         let newTopicId = this.props.topics[this.props.topics.length - 1].id
           return (
@@ -21,15 +24,18 @@ export class TopicsList extends Component {
               </div>
           )
       }
-      const topics = this.props.topics.map((topic, index) => (
+      if(this.props.topics && this.props.topics.length) {
+        topics = this.props.topics.map((topic, index) => (
         <Topic topic={topic} key={index} />     
-      ))
+        ))
+    }
 
     return (
     <div className="topics-list">
+    <HeaderBar />
+    <h2>Choose a Topic</h2>
       <TopicForm />
        <section>
-      
          {topics}
        </section>
     </div>

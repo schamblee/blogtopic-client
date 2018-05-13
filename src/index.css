@@ -2,9 +2,10 @@
   box-sizing: border-box;
 }
 
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
+
 body {
-  font-family: "Open Sans",
-  sans-serif; 
+  font-family: "lato", sans-serif;
   font-size: 20px;
   color: #444;
   text-align: center;
@@ -14,7 +15,7 @@ body {
 nav,
 footer {
   padding: 2% 0;
-  background-color: #232323;
+  background-color: #000;
   color: #fff;
 }
 
@@ -32,11 +33,13 @@ header {
 section {
   min-height: 200px;
   padding: 6% 0;
-  background-color: #bbb;
+  background: radial-gradient(ellipse at bottom, #fff 0%, #a8adc7 100%);
+
+  border-top: 3px solid #fff;
 }
 
 section:nth-child(even) {
-  background-color: #ddd;
+  background: radial-gradient(ellipse at bottom, #fff 0%, #a8adc7 100%);
 }
 
 

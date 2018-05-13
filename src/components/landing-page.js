@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 import CallToAction from './call-to-action'
-
+import LandingHeaderBar from './landing-header-bar'
 import LoginForm from './login-form';
 
 export function LandingPage(props) {
@@ -13,8 +13,8 @@ export function LandingPage(props) {
 
     return (
         <div className="home">
+        <LandingHeaderBar />
         <CallToAction />
-        
             <h2>Blogtopic</h2>
             <LoginForm />
             <Link to="/register">Register</Link>

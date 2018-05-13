@@ -4,7 +4,31 @@
   }
   
   .logo-text {
-    display: inline-block;
     vertical-align: 15px;
     margin-left: 10px;
+    top: 50%;
+    left: 0;
+    right: 0;
+    color: #FFF;
+    text-align: center;
+    font-weight: 300;
+    font-size: 50px;
+    letter-spacing: 10px;
+    padding-left: 10px;
   }
+
+  header {
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    overflow: hidden;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-bottom: 5px!important;
+  }
+
+  header * {
+    display: inline-block;
+  }
+  
+  
+
+    

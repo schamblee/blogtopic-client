@@ -1,3 +1,13 @@
 .add-new-topic {
     width: 20px;
+    
+}
+
+.topic-form * {
+    display: inline-block;
+    margin: 3px;
+}
+
+label {
+    font-size: 13px;
 }

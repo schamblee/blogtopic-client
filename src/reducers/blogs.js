@@ -22,7 +22,7 @@ import{
         currentBlog: null,
         loading: false,
         error: null,
-        currentTopic: [] 
+        currentTopic: null
     }
     
     export const blogReducer = (state = initialState, action) => {
@@ -66,7 +66,7 @@ import{
         }
         else if(action.type === FETCH_TOPIC_BLOGS_SUCCESS){
             return Object.assign({}, state,{
-                currentTopic: action.blog,
+                blogs: action.blogs,
                 loading: false
            }) 
         }   

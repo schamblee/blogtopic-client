@@ -115,24 +115,25 @@ export const deleteBlogError = (error) => ({
 })
 
 
-export const newBlog = user => dispatch => {
+export const newBlog = blog => dispatch => {
+    console.log(blog)
     const authToken = loadAuthToken();
-    return fetch(`${API_BASE_URL}/blogs/${user.id}`, {
+    return fetch(`${API_BASE_URL}/blogs/`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Authorization' : `Bearer ${authToken}`
         },
-        body: JSON.stringify(user)
+        body: JSON.stringify(blog)
     
     })
         .then(res => res.json())
             .then(response=> {
             const id = response.id;
-            window.location = `/blogs/${id}`;
-            return dispatch(createBlog(response));
+            window.location = `/blog/${id}`;
+            return dispatch(createBlogSuccess(response));
         })
-        .catch(err => {
+        .catch(err => {   
             dispatch(createBlogError(err))
         });
 };
@@ -147,14 +148,14 @@ export const fetchBlog =(id)=>(dispatch, getState)=>{
         }
     })
         .then(res => res.json())
-        .then(Blog=> dispatch(fetchBlogSuccess(Blog)))
+        .then(blog=> dispatch(fetchBlogSuccess(blog)))
         .catch(err=> dispatch(fetchBlogError(err))) 
 }
 
 export const fetchBlogs = username => (dispatch, getState) => {
     dispatch(fetchBlogsData());
     const authToken = localStorage.getItem('authToken');
-    fetch(`${API_BASE_URL}/blogs/${username}`, {
+    fetch(`${API_BASE_URL}/blogs/user/${username}`, {
         headers: {
             'Authorization': `Bearer ${authToken}`,
             'Content-Type': 'application/json'
@@ -168,7 +169,7 @@ export const fetchBlogs = username => (dispatch, getState) => {
 export const fetchTopicBlogs = topicId => (dispatch, getState) => {
     dispatch(fetchTopicBlogsData());
     const authToken = localStorage.getItem('authToken');
-    fetch(`${API_BASE_URL}/topic/${topicId}`, {
+    fetch(`${API_BASE_URL}/blogs/topic/${topicId}`, {
         headers: {
             'Authorization': `Bearer ${authToken}`,
             'Content-Type': 'application/json'

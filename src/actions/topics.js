@@ -32,7 +32,7 @@ export const fetchTopicData = () => ({
 export const FETCH_TOPIC_SUCCESS = 'FETCH_TOPIC_SUCCESS'
 export const fetchTopicSuccess = (topic) => ({
     type:'FETCH_TOPIC_SUCCESS',
-    topic: topic
+    topic
 })
 
 
@@ -153,7 +153,7 @@ export const newTopic = (topicName) => dispatch => {
 export const fetchTopic =(id)=>(dispatch, getState)=>{
     dispatch(fetchTopicData());
     const authToken = localStorage.getItem('authToken');
-    fetch(`${API_BASE_URL}/topics/${id}`, {
+    fetch(`${API_BASE_URL}/topics/topic/${id}`, {
         headers: {
             'Authorization': `Bearer ${authToken}`,
             'Content-Type': 'application/json'
