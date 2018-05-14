@@ -1,0 +1,16 @@
+.dashboard-name, .user-blogs {
+    background-color: #0f131c;
+    color: white;
+    font-weight: normal;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.dashboard-name {
+    padding: 20px
+}
+
+.user-blogs {
+    padding-bottom: 20px;
+}
+

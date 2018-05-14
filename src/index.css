@@ -33,15 +33,11 @@ header {
 section {
   min-height: 200px;
   padding: 6% 0;
-  background: radial-gradient(ellipse at bottom, #fff 0%, #a8adc7 100%);
-
-  border-top: 3px solid #fff;
+  background: radial-gradient(ellipse at bottom, #f3f4f8 0%, #a8adc7 100%);
+  border: black solid 2px;
+  margin-left: -10px;
+  margin-right: -10px;
 }
-
-section:nth-child(even) {
-  background: radial-gradient(ellipse at bottom, #fff 0%, #a8adc7 100%);
-}
-
 
 
 .like-button {

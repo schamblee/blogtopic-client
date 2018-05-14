@@ -14,6 +14,7 @@ import BlogsList from './blogs-list';
 import Blog from './blog';
 import CreateBlog from './create-blog';
 import EditBlog from './edit-blog';
+import Footer from './footer'
 
 export class App extends React.Component {
     componentDidUpdate(prevProps) {
@@ -57,6 +58,7 @@ export class App extends React.Component {
                 <Route exact path="/blog/:id" component={Blog} />
                 <Route exact path="/topic/:topidId/blog/create" component={CreateBlog} />
                 <Route exact path="/blog/edit/:blogId" component={EditBlog} />
+                <Footer />
             </div>
         );
     }

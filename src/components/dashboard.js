@@ -5,6 +5,7 @@ import {fetchBlogs} from '../actions/blogs';
 import moment from 'moment';
 import {Link} from 'react-router-dom';
 import HeaderBar from './header-bar'
+import './dashboard.css'
 
 export class Dashboard extends React.Component {
     componentDidMount() {
