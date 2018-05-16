@@ -2,8 +2,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 import CallToAction from './call-to-action'
-import LandingHeaderBar from './landing-header-bar'
+import HeaderBar from './header-bar'
 import LoginForm from './login-form';
+import './landing-page.css'
 
 export function LandingPage(props) {
     // If we are logged in redirect straight to the user's dashboard
@@ -13,11 +14,19 @@ export function LandingPage(props) {
 
     return (
         <div className="home">
-        <LandingHeaderBar />
+        <HeaderBar />
         <CallToAction />
-            <h2>Blogtopic</h2>
+        <section className="login-section">
+            <h2 className="loginTitle">Login in to BlogTopic</h2>
+            <div className="demo-credentials">Demo Cedentials<br/>
+                <b>username:</b>  demo <br/>
+                <b>password:</b>  password123 
+            </div>
             <LoginForm />
-            <Link to="/register">Register</Link>
+        </section>
+            <div className="register-text">Don't have an account?
+                <Link to="/register"> <span className="register-link">Register</span></Link>
+            </div>
         </div>
     );
 }

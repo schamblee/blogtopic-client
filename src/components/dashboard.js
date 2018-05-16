@@ -25,12 +25,20 @@ export class Dashboard extends React.Component {
             </section>
         ))
        }
+       let noBlogsMessage = (
+           <section>
+               <span>You don't have any blogs yet.</span>
+               <Link className="choose-topic-link" to='/topics'>Choose a Topic</Link>
+           </section>
+       )
+
         return (
             <div className="dashboard">
                 <HeaderBar />
                 <div className="dashboard-name">Welcome {this.props.name}</div>
                 <div className="user-blogs">Your Blogs</div>
-                { this.props.blogs && this.props.blogs.length ? blogs : ''}
+                { this.props.blogs && this.props.blogs.length ? blogs : 
+                    noBlogsMessage }
             </div>
         );
     }

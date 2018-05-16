@@ -1,0 +1,48 @@
+.loginTitle{
+    color: #fff;
+    padding-bottom: 0;
+    padding-top: 40px;
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-bottom: 0;
+    font-size: 25px;
+    padding-bottom: 0;
+    padding-top: 4%;
+}
+
+.login-section {
+    background: radial-gradient(ellipse at bottom, #2c3d52 0%, #181c25 100%);
+    margin-top: -1px;
+}
+
+label {
+    font-size: 17px!important;
+}
+
+form {
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-top: 30px;
+    color: #fff;
+    font-size: 17px;
+    margin-top: -1px;
+}
+
+.register-text {
+    font-size: 15px;
+    background-color: #fcfcfd;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-bottom: 40px;
+    padding-top: 1%;
+}
+
+.register-link {
+    color: #db342f;
+}
+
+.demo-credentials {
+    margin-top: 20px;
+    font-size: 17px;
+    color: #fff;
+}

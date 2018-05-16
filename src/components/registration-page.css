@@ -1,0 +1,49 @@
+.registration-form {
+    background: radial-gradient(ellipse at bottom, #2c3d52 0%, #181c25 100%);
+}
+
+button {
+    margin-bottom: 20px!important;
+}
+
+.registerTitle {
+    color: #fff;
+    padding-bottom: 0;
+    padding-top: 40px;
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-bottom: 0;
+    font-size: 25px;
+    padding-bottom: 0;
+    padding-top: 4%;
+}
+
+.register-section {
+    background: radial-gradient(ellipse at bottom, #2c3d52 0%, #181c25 100%);
+}
+
+label {
+    font-size: 17px!important;
+}
+
+form {
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-top: 40px;
+    color: #fff;
+    font-size: 17px;
+    margin-top: -1px;
+}
+
+.login-text {
+    font-size: 15px;
+    background-color: #fcfcfe;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-bottom: 40px;
+    padding-top: 1%;
+}
+
+.login-link {
+    color: #db342f;
+}

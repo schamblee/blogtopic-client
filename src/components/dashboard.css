@@ -7,10 +7,18 @@
 }
 
 .dashboard-name {
-    padding: 20px
+    padding: 20px;
+    margin-top: -1px;
 }
 
 .user-blogs {
     padding-bottom: 20px;
 }
 
+.choose-topic-link {
+    display: block;
+}
+
+.user-blogs {
+    margin-top: -1px;
+}

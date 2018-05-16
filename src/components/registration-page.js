@@ -3,7 +3,8 @@ import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 import RegistrationForm from './registration-form';
 import CallToAction from './call-to-action'
-import LandingHeaderBar from './landing-header-bar'
+import HeaderBar from './header-bar'
+import './registration-page.css'
 
 export function RegistrationPage(props) {
     // If we are logged in (which happens automatically when registration
@@ -13,11 +14,15 @@ export function RegistrationPage(props) {
     }
     return (
         <div className="home">
-            <LandingHeaderBar />
+            <HeaderBar />
             <CallToAction />
-            <h2>Start Blogging Now</h2>
-            <RegistrationForm />
-            <Link to="/">Login</Link>
+            <section className="register-section">
+                <h2 className="registerTitle">Start Blogging Now</h2>
+                <RegistrationForm />
+            </section>
+            <div className="login-text">Don't have an account?
+                <Link to="/"> <span className="register-link">Login</span></Link>
+            </div>
         </div>
     );
 }
