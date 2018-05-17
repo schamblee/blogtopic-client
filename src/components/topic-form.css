@@ -11,3 +11,11 @@
 label {
     font-size: 13px;
 }
+
+.topic-label {
+    display: block;
+}
+
+.topicName {
+    display: block;
+}

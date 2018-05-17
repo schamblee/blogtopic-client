@@ -33,7 +33,9 @@ export class TopicsList extends Component {
     return (
     <div className="topics-list">
     <HeaderBar />
-    <h2>Choose a Topic</h2>
+    <section className="topic-header">
+    <h2>Choose or Create a Topic</h2>
+    </section>
       <TopicForm />
        <section>
          {topics}

@@ -13,7 +13,7 @@ export class Nav extends React.Component {
         let logOutButton;
         if (this.props.loggedIn) {
             logOutButton = (
-                <button onClick={() => this.logOut()}>Log out</button>
+                <a onClick={() => this.logOut()}><li>Log out</li></a>
             );
         }
         const loggedIn = this.props.loggedIn;

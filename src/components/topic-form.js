@@ -22,7 +22,7 @@ export class TopicForm extends React.Component {
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
-                <label htmlFor="topicName">New Topic</label>
+                <label className="topic-label" htmlFor="topicName">Add a New Topic</label>
                 <Field
                     component={Input}
                     type="title"

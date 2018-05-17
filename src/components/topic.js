@@ -10,7 +10,7 @@ export default class Topic extends Component {
         return (
           <div key={key}>
             <Link className="topic-link" to= {`/topic/blogs/${topic.id}`}>{topic.topicName}</Link>
-            <p>Created: {moment(topic.created).format('MMM DD YYYY')}</p> 
+            <p className="create-date">Created: {moment(topic.created).format('MMM DD YYYY')}</p> 
           </div>
           );
     }

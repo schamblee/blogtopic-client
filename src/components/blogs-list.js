@@ -22,13 +22,14 @@ export class BlogsList extends React.Component {
             blogs = this.props.blogs.map((blog, index) => (
             <section key={index}>
                 <Link className="blog-link" to= {`/blog/${blog.id}`}><h2>{blog.title}</h2></Link>
-                <p>{moment(blog.createDate).format('MMM DD YYYY')}</p> 
+                <p className="create-date">{moment(blog.createDate).format('MMM DD YYYY')}</p> 
             </section>
         ))}
         let topic 
         if(this.props.currentTopic) {
             topic =  <section className="topic-header">
             <h1>{this.props.currentTopic.topicName }</h1>
+            <Link className="return" to="/topics">Back to Topics</Link><br/>
              <Link to={`/topic/${this.props.currentTopic.id}/blog/create`}>Add New Blog</Link>
              </section>
         } 
@@ -36,7 +37,9 @@ export class BlogsList extends React.Component {
             <div className="topicBlogs">
             <HeaderBar />
                 {topic}
+                <div className="blog-section">
                 { this.props.blogs && this.props.blogs.length ? blogs : ''}
+                </div>
             </div>
         ); 
     

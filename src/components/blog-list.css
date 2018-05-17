@@ -1,0 +1,23 @@
+.create-date {
+    margin-top: 2px;
+}
+
+.blog-title {
+    margin-bottom: 0;
+}
+
+.blog-link > h2 {
+    margin-bottom: 0;
+}
+
+.return {
+    color: #db342f;
+}
+
+.topic-header {
+    padding: 5px;
+}
+
+.blog-section {
+    min-height: 400px;
+}

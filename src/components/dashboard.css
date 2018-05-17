@@ -17,8 +17,13 @@
 
 .choose-topic-link {
     display: block;
+    color: #db342f;
 }
 
 .user-blogs {
     margin-top: -1px;
+}
+
+.user-blogs-list {
+    min-height: 480px;
 }

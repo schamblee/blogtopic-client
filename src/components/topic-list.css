@@ -1,4 +1,15 @@
 h2 {
     font-weight: normal;
-    font-size: 40px;
+    font-size: 28px;
+    color: #000;
+}
+
+.topic-form {
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    padding-top: 10px;
+}
+
+.topic-header {
+    min-height: 0;
+    padding: 0;
 }
