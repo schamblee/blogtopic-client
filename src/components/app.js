@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Route, withRouter, BrowserRouter} from 'react-router-dom';
+import {Route, withRouter} from 'react-router-dom';
 import Nav from './nav';
 import LandingPage from './landing-page';
 import Dashboard from './dashboard';
