@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {fetchTopics, newTopic} from '../actions/topics';
+import {fetchTopics} from '../actions/topics';
 import requiresLogin from './requires-login';
 import Topic from './topic'
 import TopicForm from './topic-form'
-import Filter from './filter'
-import moment from 'moment'
-import {Link, Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import './topic-list.css'
 import { HeaderBar } from './header-bar';
 
@@ -15,6 +13,7 @@ export class TopicsList extends Component {
           this.props.dispatch(fetchTopics());
       }
       render() {
+      //redirect to new topic if user creates one
       let topics
       if (this.props.redirectToTopic) {
         let newTopicId = this.props.topics[this.props.topics.length - 1].id

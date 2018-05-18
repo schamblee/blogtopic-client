@@ -118,7 +118,7 @@ export const deleteBlogError = (error) => ({
 
 
 export const newBlog = blog => dispatch => {
-    console.log(blog)
+    //create a new blog
     const authToken = loadAuthToken();
     return fetch(`${API_BASE_URL}/blogs/`, {
         method: 'POST',
@@ -141,6 +141,7 @@ export const newBlog = blog => dispatch => {
 };
 
 export const fetchBlog =(id)=>(dispatch, getState)=>{
+    //fetch a specific blog with its id
     dispatch(fetchBlogData());
     const authToken = localStorage.getItem('authToken');
     fetch(`${API_BASE_URL}/blogs/${id}`, {
@@ -155,6 +156,7 @@ export const fetchBlog =(id)=>(dispatch, getState)=>{
 }
 
 export const fetchBlogs = username => (dispatch, getState) => {
+    //retrieve user's blogs
     dispatch(fetchBlogsData());
     const authToken = localStorage.getItem('authToken');
     fetch(`${API_BASE_URL}/blogs/user/${username}`, {
@@ -169,6 +171,7 @@ export const fetchBlogs = username => (dispatch, getState) => {
 }
 
 export const fetchTopicBlogs = topicId => (dispatch, getState) => {
+    //retrieve blogs that have a specific topic
     dispatch(fetchTopicBlogsData());
     const authToken = localStorage.getItem('authToken');
     fetch(`${API_BASE_URL}/blogs/topic/${topicId}`, {
@@ -184,6 +187,7 @@ export const fetchTopicBlogs = topicId => (dispatch, getState) => {
 
 
 export const updateBlog = user => dispatch => {
+    //edit a blog with updateBlog
     const authToken = loadAuthToken();
     return fetch(`${API_BASE_URL}/blogs/${user.id}`, {
         method: 'PUT',
@@ -204,21 +208,3 @@ export const updateBlog = user => dispatch => {
             dispatch(updateBlogError(err))
         });
 };
-
-
-export const deleteBlog = user => dispatch => {
-     const authToken = loadAuthToken();
-     return fetch(`${API_BASE_URL}/blogs/${user.id}`, {
-         method: 'DELETE',
-         headers: {
-             'Content-Type': 'application/json',
-             'Authorization' : `Bearer ${authToken}`
-         },
-     })
-     .then(res => {
-         if (!res.ok) {
-           return Promise.reject(res.status);
-         }
-         return dispatch(deleteBlogRequest());
-       });
-     };

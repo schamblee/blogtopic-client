@@ -20,7 +20,7 @@ export function RegistrationPage(props) {
                 <h2 className="registerTitle">Start Blogging Now</h2>
                 <RegistrationForm />
             </section>
-            <div className="login-text">Don't have an account?
+            <div className="login-text">Already have an account?
                 <Link to="/"> <span className="register-link">Login</span></Link>
             </div>
         </div>

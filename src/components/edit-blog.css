@@ -1,3 +1,9 @@
 .blog-form {
     background: #1a2633;
+    padding: 20px;
+}
+
+#content {
+    font-size: 17px;
+    padding: 10px;
 }

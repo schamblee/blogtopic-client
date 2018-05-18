@@ -1,21 +1,17 @@
 h2 {
     font-weight: normal;
-    font-size: 28px;
+    font-size: 25px;
     color: #000;
 }
 
 .topic-form {
     background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-    padding-top: 10px;
+    padding: 20px;
 }
 
 .topic-header {
     min-height: 0;
     padding: 0;
-}
-
-#topicName {
-    width: 100%
 }
 
 .topic-input {
@@ -28,13 +24,19 @@ h2 {
 
 @media (min-width: 496px) {
     .topic-form > button {
-        width: 100px;
-        padding-left: 23px;
-        margin-left: 10px;
+        margin-top: 8px;
     }
-
     .form-input {
         text-align: right;
         display: inline-block;
+    }
+    h2 {
+        font-size: 28px;
+    }
+}
+
+@media (min-width: 1000px) {
+    h2 {
+        font-size: 35px;
     }
 }

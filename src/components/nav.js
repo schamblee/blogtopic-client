@@ -10,10 +10,16 @@ export class Nav extends React.Component {
         clearAuthToken();
     }
     render() {
+        //mobile devices display a hamburger menu
+        //large screens display a top nav-bar menu
         let logOutButton;
+        let logOutButtonLarge;
         if (this.props.loggedIn) {
             logOutButton = (
                 <a onClick={() => this.logOut()}><li>Log out</li></a>
+            );
+            logOutButtonLarge = (
+                <a onClick={() => this.logOut()}><button className="nav-large-menu-items">Log out</button></a>
             );
         }
         const loggedIn = this.props.loggedIn;
@@ -25,6 +31,7 @@ export class Nav extends React.Component {
                     <span></span>
                     <span></span>
                     {loggedIn ? (
+                    
                     <ul id="menu">
                         {logOutButton}
                         <a href="/topics"><li>Topics</li></a>
@@ -38,6 +45,18 @@ export class Nav extends React.Component {
                     </ul>
                     )}
                 </div>
+                {loggedIn ? (
+                <div id="nav-large-menu">
+                    {logOutButtonLarge}
+                    <a href="/topics"><button className="nav-large-menu-items">Topics</button></a>
+                    <a href="/"><button id="home-link" className="nav-large-menu-items">Home</button></a> 
+                </div> ) : (
+                <div id="nav-large-menu">
+                    <a href="/#logIn"><button className="nav-large-menu-items">Log In</button></a>
+                    <a href="/register"><button className="nav-large-menu-items">Create Account</button></a>
+                    <a href="/"><button id="home-link" className="nav-large-menu-items">Home</button></a>
+                </div>
+                )}
             </nav>
         );
     }

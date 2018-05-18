@@ -19,8 +19,8 @@ export function LandingPage(props) {
         <section className="login-section">
             <h2 className="loginTitle">Login in to BlogTopic</h2>
             <div className="demo-credentials">Demo Cedentials<br/>
-                <b>username:</b>  demo <br/>
-                <b>password:</b>  password123 
+                <b>Username:</b>  demo <br/>
+                <b>Password:</b>  password123 
             </div>
             <LoginForm />
         </section>

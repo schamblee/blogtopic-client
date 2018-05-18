@@ -4,9 +4,9 @@ import {Link} from 'react-router-dom';
 import './topic.css'
 
 export default class Topic extends Component {
+    //formats topic sections
     render() {
         let topic = this.props.topic
-        
         return (
           <div >
             <Link className="topic-link" to= {`/topic/blogs/${topic.id}`}>{topic.topicName}</Link>

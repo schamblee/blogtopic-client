@@ -16,8 +16,8 @@ export class RegistrationForm extends React.Component {
             .dispatch(registerUser(user))
             .then(() => this.props.dispatch(login(username, password)));
     }
-
     render() {
+        //redux form validates and creates user and then logs the user in
         return (
             <form
                 className="registration-form"

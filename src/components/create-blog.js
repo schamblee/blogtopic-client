@@ -1,16 +1,10 @@
 import React from 'react'
-import { Field, focus, resetForm, reduxForm } from 'redux-form'
 import { fetchTopic } from '../actions/topics';
-import { newBlog  } from '../actions/blogs'
 import './topic-form.css'
-import Input from './input';
-import Textarea from './textarea'
-import {Link, Redirect} from 'react-router-dom';
 import CreateBlogForm from './create-blog-form'
 import requiresLogin from './requires-login'
 import {connect} from 'react-redux'
 import HeaderBar from './header-bar'
-import './create-blog'
 
 export class CreateBlog extends React.Component {
     componentDidMount() {
@@ -19,14 +13,13 @@ export class CreateBlog extends React.Component {
     }
 
     render() {
-        console.log(this.props)
         let topic;
         let topicId;
         let username;
         if(this.props.currentTopic) {
             topicId = this.props.currentTopic.id
             topic =  <div>
-            <h1>Topic: {this.props.currentTopic.topicName }</h1>
+            <h2>Topic: {this.props.currentTopic.topicName }</h2>
              </div>
         } 
         if(this.props.username) {

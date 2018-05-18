@@ -1,46 +1,30 @@
 import React from 'react'
-import { Field, focus, resetForm, reduxForm } from 'redux-form'
-import { fetchTopic } from '../actions/topics';
+import { Field, focus, reduxForm } from 'redux-form'
+
 import { updateBlog, fetchBlog  } from '../actions/blogs'
 import './topic-form.css'
 import Input from './input';
 import Textarea from './textarea'
-import {Link, Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux'
 
 export class EditBlogForm extends React.Component {
-
-    componentDidMount() {
-      //  const editBlogPath = this.props.location.pathname.split('/')
-      //  const blogId = editBlogPath[3]
-        console.log(this.props)
-        let InitializeFromStateForm = props => {
-        const { load } = props
-        }
-    }
-
-
     onSubmit(values) {
-        console.log(this.props)
-       // const editBlogPath = this.props.location.pathname.split('/')
         const blogId = this.props.initialValues.id
-        const { title, content } = values;
         const blog = Object.assign({}, {blogId}, values);
-            console.log(blog)
         return this.props
         .dispatch(updateBlog(blog))
-        //window.location = `/blogs/${blogId}`;
     }
-
     render() {
+      //redux form used to update blog content and title
         if (this.props.submitSucceeded === true ) {
             return (
                 <div>
                   <Redirect to={`/blog/${this.props.initialValues.id}`} />
                 </div>
             )
-        }
-        
+        }  
+
         return (
             <div>
              <form

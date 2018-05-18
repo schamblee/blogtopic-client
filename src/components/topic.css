@@ -1,7 +1,13 @@
 .topic-link {
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .create-date {
     margin-top: 2px;
+}
+
+@media (min-width: 496px) {
+    .topic-link {
+        font-size: 30px;
+    }
 }

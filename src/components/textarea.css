@@ -1,4 +1,12 @@
 textarea {
-    width: 80%;
-    min-height: 350px;
+    width: 500px;
+    height: 350px;
+}
+
+
+@media (min-width: 1200px) {
+    textarea {
+        width: 829px;
+        height: 499px;
+    }
 }

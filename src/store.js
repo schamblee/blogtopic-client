@@ -5,7 +5,6 @@ import {loadAuthToken} from './local-storage';
 import authReducer from './reducers/auth';
 import { blogReducer } from './reducers/blogs';
 import { topicReducer } from './reducers/topics';
-import protectedDataReducer from './reducers/protected-data';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
 
 const store = createStore(
@@ -13,8 +12,7 @@ const store = createStore(
         form: formReducer,
         auth: authReducer,
         blog: blogReducer,
-        topic: topicReducer,
-        protectedData: protectedDataReducer
+        topic: topicReducer
     }),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
     applyMiddleware(thunk)

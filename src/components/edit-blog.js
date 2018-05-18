@@ -1,11 +1,6 @@
 import React from 'react'
-import { Field, focus, resetForm, reduxForm } from 'redux-form'
-import { fetchTopic } from '../actions/topics';
 import { fetchBlog  } from '../actions/blogs'
 import './topic-form.css'
-import Input from './input';
-import Textarea from './textarea'
-import {Link, Redirect} from 'react-router-dom';
 import EditBlogForm from './edit-blog-form'
 import requiresLogin from './requires-login'
 import { connect } from 'react-redux'
@@ -14,17 +9,16 @@ import './edit-blog.css'
 
 export class EditBlog extends React.Component {
     componentDidMount() {
-        console.log(this.props)
         const editBlogPath = this.props.location.pathname.split('/')
         this.props.dispatch(fetchBlog(editBlogPath[3]))
+        //used to get current blog data
     }
 
     render() {
-        console.log(this.props)
         let blog;
         let username;
-        let content;
         let initialValues;
+        //passes initial values to edit-blog-form.js
         let redirectToBlog;
         if(this.props.currentBlog) {
             initialValues = this.props.currentBlog;

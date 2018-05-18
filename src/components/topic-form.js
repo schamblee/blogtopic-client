@@ -1,12 +1,12 @@
 import React from 'react'
-import { Field, focus, resetForm, reduxForm } from 'redux-form'
-import { newTopic, fetchTopics } from '../actions/topics';
+import { Field, focus, reduxForm } from 'redux-form'
+import { newTopic } from '../actions/topics';
 import './topic-form.css'
 import Input from './input';
-import {Link, Redirect} from 'react-router-dom';
 
 
 export class TopicForm extends React.Component {
+    //form used to submit a new topic
     onSubmit(values) {
         const {topicName} = values;
         const topic = topicName;
@@ -14,7 +14,6 @@ export class TopicForm extends React.Component {
         .dispatch(newTopic(topic))
         
     }
-
     render() {
         let label = <label className="topic-label" htmlFor="topicName">Add a New Topic</label>
         return (
@@ -23,7 +22,6 @@ export class TopicForm extends React.Component {
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
-                
                 <Field
                     label={label}
                     component={Input}

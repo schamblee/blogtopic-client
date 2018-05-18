@@ -29,6 +29,14 @@
   header * {
     display: inline-block;
   }
+
+  @media (min-width: 750px) {
+    header {
+      padding: 0;
+      padding: 50px;
+      padding-top: 100px;
+    }
+  }
   
   
 

@@ -1,30 +1,22 @@
 import React from 'react'
-import { Field, focus, resetForm, reduxForm } from 'redux-form'
-import { fetchTopic } from '../actions/topics';
+import { Field, focus, reduxForm } from 'redux-form'
 import { newBlog  } from '../actions/blogs'
 import './topic-form.css'
 import Input from './input';
 import Textarea from './textarea'
-import {Link, Redirect} from 'react-router-dom';
 
 export class CreateBlog extends React.Component {
-
+    //form used to post a blog
     onSubmit(values) {
         const username = this.props.username;
         const topicId = this.props.topicId;
-        const { title, content } = values;
         const blog = Object.assign({}, {username, topicId}, values);
+        //the blog object is passed to the newBlog action to post the blog data
         return this.props
         .dispatch(newBlog(blog))
     }
 
     render() {
-        let topic
-        if(this.props.currentTopic) {
-            topic =  <div>
-            <h1>{this.props.currentTopic.topicName }</h1>
-             </div>
-        } 
         return (
             <div>
              <form
@@ -47,7 +39,7 @@ export class CreateBlog extends React.Component {
                 </div>
                 <div>    
                   <Field
-                    component={Textarea}
+                    component={Textarea} /* future iteration could include editable div */ 
                     type="text"
                     name="content"
                      />

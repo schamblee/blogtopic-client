@@ -3,12 +3,12 @@ import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
 import {fetchBlog} from '../actions/blogs';
 import {fetchTopic} from '../actions/topics';
-import moment from 'moment';
 import {Link} from 'react-router-dom';
 import HeaderBar from './header-bar'
 import './blog.css'
 
 export class Blog extends React.Component {
+    //blog component which displays saved blogs
     componentDidMount() {
         const blogPath = this.props.location.pathname.split('/')
         this.props.dispatch(fetchBlog(blogPath[2]));
@@ -19,6 +19,7 @@ export class Blog extends React.Component {
     }
 
     render() {
+        //only display edit link if the current user is the onw who wrote the blog
         let editLink = ''
         if (this.props.username && this.props.currentBlog) {       
             if (this.props.username === this.props.currentBlog.username) {
@@ -41,7 +42,7 @@ export class Blog extends React.Component {
             {topic}
             <div className="blog-body">
                 <h1>{ this.props.currentBlog ? this.props.currentBlog.title  : ''}</h1>
-                <p>{ this.props.currentBlog ? this.props.currentBlog.content  : ''}</p>
+                <p className="blog-content">{ this.props.currentBlog ? this.props.currentBlog.content  : ''}</p>
                 {editLink}
             </div>
             </div>

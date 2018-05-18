@@ -9,13 +9,12 @@ import './dashboard.css'
 
 export class Dashboard extends React.Component {
     componentDidMount() {
-        console.log(this.props)
         this.props.dispatch(fetchBlogs(this.props.username));
     }
-
     render() {
+        //if the user had posted blogs, they will be displayed 
+        //otherwise, a message will instruct them to navigate to topics
         let blogs
-
         if(this.props.blogs && this.props.blogs.length) {
             blogs = this.props.blogs.map((blog, index) => (
             <section key={index}>
@@ -25,13 +24,13 @@ export class Dashboard extends React.Component {
             </section>
         ))
        }
+       //displayed if there are not yet any blogs
        let noBlogsMessage = (
            <div>
                <span>You don't have any blogs yet.</span>
                <Link className="choose-topic-link" to='/topics'>Choose a Topic to Begin</Link>
            </div>
        )
-
         return (
             <div className="dashboard">
                 <HeaderBar />
