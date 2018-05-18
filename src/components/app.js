@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Route, withRouter} from 'react-router-dom';
+import {Route, withRouter, BrowserRouter} from 'react-router-dom';
 import Nav from './nav';
 import LandingPage from './landing-page';
 import Dashboard from './dashboard';
@@ -47,14 +47,14 @@ export class App extends React.Component {
         return (
             <div className="app">
                 <Nav />
-                <Route exact path="/" component={LandingPage} />
-                <Route exact path="/dashboard" component={Dashboard} />
-                <Route exact path="/register" component={RegistrationPage} />
-                <Route exact path="/topics" component={TopicsList} />
-                <Route exact path="/topic/blogs/:id" component={BlogsList} />
-                <Route exact path="/blog/:id" component={Blog} />
-                <Route exact path="/topic/:topidId/blog/create" component={CreateBlog} />
-                <Route exact path="/blog/edit/:blogId" component={EditBlog} />
+                    <Route exact path="/" component={LandingPage} />
+                    <Route exact path="/dashboard" component={Dashboard} />
+                    <Route exact path="/register" component={RegistrationPage} />
+                    <Route exact path="/topics" component={TopicsList} />
+                    <Route exact path="/topic/blogs/:id" component={BlogsList} />
+                    <Route exact path="/blog/:id" component={Blog} />
+                    <Route exact path="/topic/:topidId/blog/create" component={CreateBlog} />
+                    <Route exact path="/blog/edit/:blogId" component={EditBlog} />
                 <Footer />
             </div>
         );

@@ -5,7 +5,7 @@ import './topic-form.css'
 import Input from './input';
 import Textarea from './textarea'
 
-export class CreateBlog extends React.Component {
+export class CreateBlogForm extends React.Component {
     //form used to post a blog
     onSubmit(values) {
         const username = this.props.username;
@@ -60,4 +60,4 @@ export default reduxForm({
     form: 'blog',
     onSubmitFail: (errors, dispatch) =>
         dispatch(focus('blog', Object.keys(errors)[0]))
-})(CreateBlog);
+})(CreateBlogForm);
