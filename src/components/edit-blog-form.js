@@ -70,8 +70,7 @@ export class EditBlogForm extends React.Component {
                 </div>
                 <div>
                   <button
-                    type="submit"
-                    disabled={this.props.pristine || this.props.submitting}>
+                    type="submit">
                     Update Blog
                   </button>    
                 </div>

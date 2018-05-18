@@ -10,6 +10,7 @@ import EditBlogForm from './edit-blog-form'
 import requiresLogin from './requires-login'
 import { connect } from 'react-redux'
 import HeaderBar from './header-bar'
+import './edit-blog.css'
 
 export class EditBlog extends React.Component {
     componentDidMount() {
@@ -37,8 +38,10 @@ export class EditBlog extends React.Component {
         return (
             <div>
                 <HeaderBar />
+            <section className="topic-header">
                 {blog}
-             <h1>Edit Blog</h1>
+             <h4>Edit Your Blog</h4>
+             </section>
              <EditBlogForm initialValues={initialValues}
               username={username} redirectToBlog={redirectToBlog} />
             </div>

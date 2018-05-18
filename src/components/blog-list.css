@@ -15,9 +15,15 @@
 }
 
 .topic-header {
-    padding: 5px;
+    padding: 10px;
+    background: radial-gradient(ellipse at bottom, #ffffff 0%, #dcdde7 100%);
 }
 
 .blog-section {
     min-height: 400px;
+}
+
+.topic-name {
+    margin-bottom: 0;
+    margin-top: 10px;
 }

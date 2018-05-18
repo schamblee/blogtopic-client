@@ -16,14 +16,16 @@ export class TopicForm extends React.Component {
     }
 
     render() {
+        let label = <label className="topic-label" htmlFor="topicName">Add a New Topic</label>
         return (
             <form
                 className="topic-form"
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
-                <label className="topic-label" htmlFor="topicName">Add a New Topic</label>
+                
                 <Field
+                    label={label}
                     component={Input}
                     type="title"
                     name="topicName"

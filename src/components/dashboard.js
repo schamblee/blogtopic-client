@@ -28,7 +28,7 @@ export class Dashboard extends React.Component {
        let noBlogsMessage = (
            <div>
                <span>You don't have any blogs yet.</span>
-               <Link className="choose-topic-link" to='/topics'>Choose a Topic</Link>
+               <Link className="choose-topic-link" to='/topics'>Choose a Topic to Begin</Link>
            </div>
        )
 

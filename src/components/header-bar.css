@@ -1,6 +1,6 @@
 .logo {
     max-width: 60px;
-    display: block;
+    display: inline-block;
     margin-left: 40%;
     margin-right: 40%;
   }

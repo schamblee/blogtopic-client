@@ -28,9 +28,9 @@ export class BlogsList extends React.Component {
         let topic 
         if(this.props.currentTopic) {
             topic =  <section className="topic-header">
-            <h1>{this.props.currentTopic.topicName }</h1>
             <Link className="return" to="/topics">Back to Topics</Link><br/>
-             <Link to={`/topic/${this.props.currentTopic.id}/blog/create`}>Add New Blog</Link>
+            <h1 className="topic-name">{this.props.currentTopic.topicName }</h1>
+             <Link className="add-blog-link" to={`/topic/${this.props.currentTopic.id}/blog/create`}><button>Add New Blog</button></Link>
              </section>
         } 
         return (

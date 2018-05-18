@@ -10,6 +10,7 @@ import CreateBlogForm from './create-blog-form'
 import requiresLogin from './requires-login'
 import {connect} from 'react-redux'
 import HeaderBar from './header-bar'
+import './create-blog'
 
 export class CreateBlog extends React.Component {
     componentDidMount() {
@@ -25,7 +26,7 @@ export class CreateBlog extends React.Component {
         if(this.props.currentTopic) {
             topicId = this.props.currentTopic.id
             topic =  <div>
-            <h1>{this.props.currentTopic.topicName }</h1>
+            <h1>Topic: {this.props.currentTopic.topicName }</h1>
              </div>
         } 
         if(this.props.username) {
@@ -34,8 +35,10 @@ export class CreateBlog extends React.Component {
         return (
             <div>
                 <HeaderBar />
+            <section className="topic-header">
                 {topic}
-             <h1>Create a New Blog</h1>
+                <h1>Create a New Blog</h1>
+             </section>
              <CreateBlogForm topicId={topicId} 
               username={username} />
             </div>

@@ -6,6 +6,7 @@ import {fetchTopic} from '../actions/topics';
 import moment from 'moment';
 import {Link} from 'react-router-dom';
 import HeaderBar from './header-bar'
+import './blog.css'
 
 export class Blog extends React.Component {
     componentDidMount() {
@@ -22,17 +23,27 @@ export class Blog extends React.Component {
         if (this.props.username && this.props.currentBlog) {       
             if (this.props.username === this.props.currentBlog.username) {
                 const blogId = this.props.currentBlog ? this.props.currentBlog.id : ''
-                editLink = <Link className="edit-blog-link" to={`/blog/edit/${blogId}`}>Edit</Link>
+                editLink = <Link className="edit-blog-link" to={`/blog/edit/${blogId}`}><button>Edit</button></Link>
             } 
         }
+
+        let topic 
+        if(this.props.currentTopic) {
+            topic =  <section className="topic-header">
+            <Link className="return" to={`/topic/blogs/${this.props.currentTopic.id}`}>Back to Topic</Link><br/>
+            <h1 className="topic-name">{this.props.currentTopic.topicName }</h1>
+             </section>
+        } 
             
         return (
             <div className="topicBlogs">
             <HeaderBar />
-                <h1>{ this.props.currentTopic ? this.props.currentTopic.topicName  : ''}</h1>
+            {topic}
+            <div className="blog-body">
                 <h1>{ this.props.currentBlog ? this.props.currentBlog.title  : ''}</h1>
                 <p>{ this.props.currentBlog ? this.props.currentBlog.content  : ''}</p>
                 {editLink}
+            </div>
             </div>
         ); 
     
