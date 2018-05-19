@@ -34,7 +34,9 @@ export class Blog extends React.Component {
             <Link className="return" to={`/topic/blogs/${this.props.currentTopic.id}`}>Back to Topic</Link><br/>
             <h1 className="topic-name">{this.props.currentTopic.topicName }</h1>
              </section>
-        } 
+        } else {
+            topic = <Link className="return" to={`/topics`}><br/>Go to Topics</Link>
+        }
             
         return (
             <div className="topicBlogs">
