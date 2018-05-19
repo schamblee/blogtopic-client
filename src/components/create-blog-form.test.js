@@ -1,0 +1,13 @@
+import React from 'react';
+import { shallow, mount } from 'enzyme';
+import { Route, withRouter, MemoryRouter } from 'react-router-dom';
+import CreateBlogForm from './create-blog-form';
+
+describe('<CreateBlogForm />', () => {
+    it('Renders without crashing', () => {
+        shallow(
+            <MemoryRouter>
+                <CreateBlogForm />
+            </MemoryRouter>);
+    });
+});

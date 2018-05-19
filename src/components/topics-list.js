@@ -5,7 +5,7 @@ import requiresLogin from './requires-login';
 import Topic from './topic'
 import TopicForm from './topic-form'
 import {Redirect} from 'react-router-dom';
-import './topic-list.css'
+import './topics-list.css'
 import { HeaderBar } from './header-bar';
 
 export class TopicsList extends Component {
