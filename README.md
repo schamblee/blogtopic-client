@@ -15,8 +15,11 @@ Sometimes the most challenging part of writing is deciding what to write about.
 BlogTopic is here to help users overcome writer's block by providing the topics! 
 
 How to use BlogTopic:
+
 Step 1: Log in or register
+
 Step 2: Select a topic or create a new one
+
 Step 3: Browse current blogs and add a new one
 
 ## Screenshots

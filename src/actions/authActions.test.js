@@ -8,7 +8,7 @@ import { authRequest,
          setAuthToken, 
          SET_AUTH_TOKEN, 
          clearAuth, 
-         CLEAR_AUTH } from "../actions/auth";
+         CLEAR_AUTH } from "./auth";
 
 describe('user login actions', () => {
   it('should return the authRequest() action', () => {
