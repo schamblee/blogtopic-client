@@ -45,6 +45,7 @@ Blog:
 Front-End:
 * React
 * Redux
+* Netlify
 
 Backend:
 * Node.js
