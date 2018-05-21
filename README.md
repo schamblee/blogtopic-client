@@ -26,7 +26,7 @@ Step 3: Browse current blogs and add a new one
 
 Landing Page:
 
-![Landing Page](https://image.ibb.co/c0i6i8/Screen_Shot_2018_05_18_at_3_07_56_PM.png)
+![Landing Page](https://image.ibb.co/h8ScAo/Screen_Shot_2018_05_21_at_10_26_15_AM.png)
 
 Log In Form:
 
