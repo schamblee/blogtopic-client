@@ -7,12 +7,14 @@
     margin-bottom: 0;
     font-size: 25px;
     padding-bottom: 0;
-    padding-top: 4%;
+    padding-top: 0;
 }
 
 .login-section {
     background: radial-gradient(ellipse at bottom, #2c3d52 0%, #181c25 100%);
     margin-top: -1px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 label {
@@ -44,8 +46,8 @@ form {
     background-color: #fcfcfd;
     margin-left: -10px;
     margin-right: -10px;
-    padding-bottom: 40px;
-    padding-top: 1%;
+    padding-bottom: 3%;
+    padding-top: 3%;
 }
 
 .register-link {

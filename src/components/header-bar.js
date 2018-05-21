@@ -6,8 +6,10 @@ export class HeaderBar extends React.Component {
     render() {
         return (
                 <header className="header-bar" role="banner">
-                    <div className="logo-text">BlogTopic</div>
-                    <img className="logo" src="https://www.enomis.it/wp-content/uploads/holzbackofen-forum-barbecue-4.png" alt="BlogTopic" /> 
+                    <span className="header-content">
+                        <div className="logo-text">BlogTopic</div>
+                        <img className="logo" src="https://www.enomis.it/wp-content/uploads/holzbackofen-forum-barbecue-4.png" alt="BlogTopic" /> 
+                    </span>
                 </header>
                 
 

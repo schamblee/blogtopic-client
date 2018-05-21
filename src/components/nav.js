@@ -47,14 +47,16 @@ export class Nav extends React.Component {
                 </div>
                 {loggedIn ? (
                 <div id="nav-large-menu">
+                    <a href="/"><button id="home-link" className="nav-large-menu-items">
+                    <img className="logo-sm" src="https://www.enomis.it/wp-content/uploads/holzbackofen-forum-barbecue-4.png" alt="BlogTopic" /> <span className="logo-title">BlogTopic</span></button></a>
                     {logOutButtonLarge}
-                    <a href="/topics"><button className="nav-large-menu-items">Topics</button></a>
-                    <a href="/"><button id="home-link" className="nav-large-menu-items">Home</button></a> 
+                    <a href="/topics"><button className="nav-large-menu-items">Topics</button></a> 
                 </div> ) : (
                 <div id="nav-large-menu">
+                    <a href="/"><button id="home-link" className="nav-large-menu-items">
+                    <img className="logo-sm" src="https://www.enomis.it/wp-content/uploads/holzbackofen-forum-barbecue-4.png" alt="BlogTopic" /> <span className="logo-title">BlogTopic</span></button></a>
                     <a href="/#logIn"><button className="nav-large-menu-items">Log In</button></a>
                     <a href="/register"><button className="nav-large-menu-items">Create Account</button></a>
-                    <a href="/"><button id="home-link" className="nav-large-menu-items">Home</button></a>
                 </div>
                 )}
             </nav>
