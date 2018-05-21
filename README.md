@@ -34,11 +34,7 @@ Log In Form:
 
 Large-Screen Navigation Bar
 
-![Large-Screen Navigation Bar](https://image.ibb.co/bGpqAo/Screen_Shot_2018_05_18_at_3_09_16_PM.png)
-
-Blog:
-
-![Blog](https://image.ibb.co/jzYvbT/Screen_Shot_2018_05_18_at_3_10_59_PM.png)
+![Large-Screen Navigation Bar](https://image.ibb.co/fB89qo/Screen_Shot_2018_05_21_at_10_22_18_AM.png)
 
 ## Built With
 
